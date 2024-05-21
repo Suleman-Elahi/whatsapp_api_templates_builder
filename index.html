@@ -313,6 +313,9 @@ div {
 </div>
 </div>
     <script>
+
+        let header_variable_counter = 1;
+        let body_variable_counter = 1;
         // Get references to the textarea and span elements
         const textarea = document.getElementById('body');
         const span = document.querySelector('.msg_body');
@@ -360,13 +363,14 @@ div {
             // HTML to be inserted
             const htmlToInsert = `
                 <div class="inline-block">
-                    <label for="variable1">{{1}}</label>
-                    <input type="text" id="variable1" placeholder="Placeholder" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring"/>
-                    <a class="inline" href="#">x</a>
+                    <label for="variable${header_variable_counter}">{{${header_variable_counter}}}</label>
+                    <input type="text" id="variable1" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring"/>
+                    <a class="inline" id="remove_header_variable${header_variable_counter}" href="#">x</a>
                 </div>
             `;
 
             this.insertAdjacentHTML('afterend', htmlToInsert);
+            header_variable_counter++;
         });
     </script>
 </body>
