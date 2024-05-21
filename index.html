@@ -245,13 +245,7 @@ div {
           id="header"
           placeholder="Enter header text"
         />
-                  <a class="float-right" style="font-size:12px;margin-right:5px;" href="#"> +Add Variable</a>
-                <div class="inline-block"> 
-                  <label for="variable1">{{1}}</label>
-                  <input type="text" id="variable1" placeholder="Placeholder" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring"/>
-                  <a class="inline" href="#">x</a>
-                 </div>
-
+                  <a class="float-right" id="add_header_variable" style="font-size:12px;margin-right:5px;" href="#"> +Add Variable</a>
       </div>
  
       <div class="space-y-2">
@@ -272,7 +266,7 @@ div {
             <span id="body-char-count">0</span>/1024
           </div>
         </div>
-        <a class="float-right" style="font-size:12px;margin-right:5px;" href="#"> +Add Variable</a>
+        <a class="float-right" id="add_body_variable style="font-size:12px;margin-right:5px;" href="#"> +Add Variable</a>
       </div>
       <div class="inline-block"> 
         <label for="variable1">{{1}}</label>
@@ -363,6 +357,22 @@ div {
             if (!menuButton.contains(event.target) && !popupMenu.contains(event.target)) {
                 popupMenu.classList.add('hidden');
             }
+        });
+
+        document.getElementById('add_header_variable').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+
+            // Define the HTML to be inserted
+            const htmlToInsert = `
+                <div class="inline-block">
+                    <label for="variable1">{{1}}</label>
+                    <input type="text" id="variable1" placeholder="Placeholder" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring"/>
+                    <a class="inline" href="#">x</a>
+                </div>
+            `;
+
+            // Insert the HTML after the clicked element
+            this.insertAdjacentHTML('afterend', htmlToInsert);
         });
     </script>
 </body>
