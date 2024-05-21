@@ -266,7 +266,7 @@ div {
             <span id="body-char-count">0</span>/1024
           </div>
         </div>
-        <a class="float-right" id="add_body_variable style="font-size:12px;margin-right:5px;" href="#"> +Add Variable</a>
+        <a class="float-right" id="add_body_variable" style="font-size:12px;margin-right:5px;" href="#"> +Add Variable</a>
       </div>
       <div class="inline-block"> 
         <label for="variable1">{{1}}</label>
@@ -318,10 +318,8 @@ div {
         const span = document.querySelector('.msg_body');
         const charCountSpan = document.getElementById('body-char-count');
 
-
-        // Add an event listener to the textarea to handle the 'input' event
         textarea.addEventListener('input', function() {
-            // Update the span content with the textarea's value
+
             span.textContent = textarea.value;
             charCountSpan.textContent = textarea.value.length;
         });
@@ -329,25 +327,22 @@ div {
         const header = document.getElementById('header');
         const header_span = document.querySelector('.msg_header');
 
-        // Add an event listener to the textarea to handle the 'input' event
         header.addEventListener('input', function() {
-            // Update the span content with the textarea's value
+
             header_span.textContent = header.value;
         });
 
         const footer = document.getElementById('footer');
         const footer_span = document.querySelector('.msg_footer');
 
-        // Add an event listener to the textarea to handle the 'input' event
         footer.addEventListener('input', function() {
-            // Update the span content with the textarea's value
+
             footer_span.textContent = footer.value;
         });
 
         const menuButton = document.getElementById('show-header-menu');
         const popupMenu = document.getElementById('popup-menu');
 
-        // Toggle the visibility of the popup menu when the button is clicked
         menuButton.addEventListener('click', () => {
             popupMenu.classList.toggle('hidden');
         });
@@ -362,7 +357,7 @@ div {
         document.getElementById('add_header_variable').addEventListener('click', function(event) {
             event.preventDefault(); // Prevent the default link behavior
 
-            // Define the HTML to be inserted
+            // HTML to be inserted
             const htmlToInsert = `
                 <div class="inline-block">
                     <label for="variable1">{{1}}</label>
@@ -371,7 +366,6 @@ div {
                 </div>
             `;
 
-            // Insert the HTML after the clicked element
             this.insertAdjacentHTML('afterend', htmlToInsert);
         });
     </script>
